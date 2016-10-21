@@ -1,16 +1,18 @@
 <?php
 class Core{
     public function run(){
-
+        
         $url = explode("index.php", $_SERVER['PHP_SELF']);
         $url = end($url);
         $params = array();
         
         if (!empty($url)) {
 
-            $url = explode('/', $url);
+            $url = explode('/', $url);           
             array_shift($url);
-
+            if ($url[count($url)-1] == ""){
+                array_pop($url);
+            }
             $currentController = $url[0].'Controller';
             array_shift($url);
 
