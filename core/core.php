@@ -2,8 +2,13 @@
 class Core{
     public function run(){
         
-        $url = explode("index.php", $_SERVER['PHP_SELF']);
-        $url = end($url);
+//        Primeira opção do .htaccess
+//        $url = explode("index.php", $_SERVER['PHP_SELF']);
+//        $url = end($url);
+//        $params = array();
+        
+//        Segunda opção do .htaccess
+        $url = (isset($_GET['q']))?"/".$_GET['q']:"";
         $params = array();
         
         if (!empty($url)) {
